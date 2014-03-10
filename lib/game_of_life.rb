@@ -52,9 +52,10 @@ class GameOfLife
 
   def run
     system 'clear' or system 'cls'
-    5.times do
+    50.times do
       puts board
-      sleep 1
+      cycle
+      sleep 0.3
       system 'clear' or system 'cls'
     end
   end
