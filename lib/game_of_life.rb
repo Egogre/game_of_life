@@ -32,7 +32,7 @@ class GameOfLife
     raise_if_invalid(options)
     row = options[:row]
     column = options[:column]
-    cells[row][column] = 'O'
+    cells[row][column] = ' '
   end
 
   def alive?(options)
@@ -66,7 +66,7 @@ class GameOfLife
     cells = Array.new(rows) {Array.new(cols)}
     cells.each_with_index do |row, i|
       row.each_index do |j|
-        cells[i][j] = "O"
+        cells[i][j] = " "
       end
     end
     cells
@@ -119,11 +119,11 @@ class GameOfLife
     column = options[:column]
     neighbors = options[:neighbors]
     if neighbors < 2
-      cells[row][column] = 'O'
+      cells[row][column] = ' '
     elsif neighbors == 3
       cells[row][column] = 'X'
     elsif neighbors > 3
-      cells[row][column] = 'O'
+      cells[row][column] = ' '
     end
   end
 
