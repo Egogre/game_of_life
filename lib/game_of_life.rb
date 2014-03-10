@@ -13,6 +13,15 @@ class GameOfLife
     cells.collect {|row| row.join(' ')}.join("\n")
   end
 
+  def randomize_board
+    cells.each_with_index do |row, i|
+      row.each_index do |j|
+        test = rand(100)
+        cells[i][j] = 'X' if test%5 == 0
+      end
+    end
+  end
+
   def populate(options)
     options[:cells].each do |pair|
       row = pair[:row]

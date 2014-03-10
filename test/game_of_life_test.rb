@@ -41,6 +41,12 @@ class GameOfLifeTest < MiniTest::Test
     assert_equal "  X  \nX    \n  X  ", game.board
   end
 
+  def test_game_can_be_randomly_populated
+    start = game.board
+    game.randomize_board
+    refute_equal start, game.board
+  end
+
   def test_out_of_bounds_raises_error
     assert_raises(ArgumentError) {game.make_live(row: 5, column: 5)}
     assert_raises(ArgumentError) {game.make_live(row: -5, column: -15)}
