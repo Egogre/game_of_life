@@ -14,12 +14,14 @@ class GameOfLife
   end
 
   def make_live(options={})
+    raise_if_invalid(options)
     row = options[:row]
     column = options[:column]
     cells[row][column] = 'X'
   end
 
   def make_dead(options={})
+    raise_if_invalid(options)
     row = options[:row]
     column = options[:column]
     cells[row][column] = 'O'
@@ -43,6 +45,20 @@ class GameOfLife
         cells[i][j] = "O"
       end
     end
+  end
+
+  def raise_if_invalid(options)
+    if illegal_row(options[:row]) || illegal_column(options[:column])
+      raise ArgumentError, "That cell does not exist"
+    end
+  end
+
+  def illegal_row(row)
+    row > cells.length
+  end
+
+  def illegal_column(column)
+    column > cells.first.length
   end
 
 end

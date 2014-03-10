@@ -30,5 +30,10 @@ class GameOfLifeTest < MiniTest::Test
     assert_equal "O O O\nO O O\nO O O", game.board
   end
 
+  def test_out_of_bounds_raises_error
+    assert_raises(ArgumentError) {game.make_live(row: 5, column: 5)}
+    assert_raises(ArgumentError) {game.make_dead(row: 5, column: 5)}
+  end
+
 
 end
