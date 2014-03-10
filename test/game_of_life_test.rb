@@ -49,7 +49,7 @@ class GameOfLifeTest < MiniTest::Test
 
   def test_out_of_bounds_raises_error
     assert_raises(ArgumentError) {game.make_live(row: 5, column: 5)}
-    assert_raises(ArgumentError) {game.make_live(row: -5, column: -15)}
+    assert_raises(ArgumentError) {game.make_live(row: -5, column: -1)}
     assert_raises(ArgumentError) {game.make_dead(row: 5, column: 5)}
     assert_raises(ArgumentError) {game.make_dead(row: -5, column: -5)}
   end
@@ -62,5 +62,12 @@ class GameOfLifeTest < MiniTest::Test
     assert_equal "     \n     \n     ", game.board
   end
 
+  def test_game_cycles_correctly_again
+    game.populate(cells: [{row:0, column:0}, {row:0, column:1}, {row:1, column:0}, {row:1, column:1}])
+    game.cycle
+    assert_equal "X X  \nX X  \n     ", game.board
+    game.cycle
+    assert_equal "X X  \nX X  \n     ", game.board
+  end
 
 end

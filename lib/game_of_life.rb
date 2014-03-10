@@ -1,4 +1,3 @@
-require 'pry'
 class GameOfLife
 
   attr_reader :cells
@@ -61,11 +60,13 @@ class GameOfLife
 
   def run
     system 'clear' or system 'cls'
-    50.times do
+    while true do
+      test = board
       puts board
       cycle
       sleep 0.3
       system 'clear' or system 'cls'
+      break if board == test
     end
   end
 
