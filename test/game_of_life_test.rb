@@ -6,8 +6,11 @@ class GameOfLifeTest < MiniTest::Test
 
   attr_reader :game
 
-  def test_a_blank_default_board_is_generated
+  def setup
     @game = GameOfLife.new
+  end
+
+  def test_a_blank_default_board_is_generated
     assert_equal "O O O\nO O O\nO O O", game.board
   end
 
@@ -17,6 +20,15 @@ class GameOfLifeTest < MiniTest::Test
   end
 
   def test_living_cell_can_be_placed
+    game.make_live(row: 0, column: 1)
+    assert_equal "O X O\nO O O\nO O O", game.board
   end
+
+  def test_a_living_cell_can_be_killed
+    game.make_live(row: 0, column: 1)
+    game.make_dead(row: 0, column: 1)
+    assert_equal "O O O\nO O O\nO O O", game.board
+  end
+
 
 end
