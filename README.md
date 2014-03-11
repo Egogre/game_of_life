@@ -34,3 +34,9 @@ git clone git@github.com:wvmitchell/game_of_life.git
 cd game_of_life
 ruby simulate.rb
 ```
+
+
+## Contributing
+
+Have an edge case that needs a test? Know a faster algorithm for simulating
+a life cycle? Please, fork, hack, and submit a pull request.
