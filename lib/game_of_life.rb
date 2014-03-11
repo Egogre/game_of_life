@@ -58,11 +58,20 @@ class GameOfLife
     end
   end
 
+  def clear
+    cells.each_with_index do |row, i|
+      row.each_index do |j|
+        cells[i][j] = " "
+      end
+    end
+  end
+
   def run
     system 'clear' or system 'cls'
     while(true) do
       puts board
       cycle
+      sleep 0.3
       system 'clear' or system 'cls'
     end
   end

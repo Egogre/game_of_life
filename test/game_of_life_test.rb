@@ -42,9 +42,18 @@ class GameOfLifeTest < MiniTest::Test
   end
 
   def test_game_can_be_randomly_populated
+    @game = GameOfLife.new(rows:100, columns:100)
     start = game.board
     game.randomize_board
     refute_equal start, game.board
+  end
+
+  def test_game_can_be_cleared
+    @game = GameOfLife.new(rows:100, columns:100)
+    start = game.board
+    game.randomize_board
+    game.clear
+    assert_equal start, game.board
   end
 
   def test_out_of_bounds_raises_error
