@@ -23,3 +23,13 @@ repeatedly to create further generations.
 
 For a more in depth explaination, checkout out
 [Wikipedia](http://en.wikipedia.org/wiki/Conway's_Game_of_Life)
+
+
+## Running the game
+
+Want to see it in action? No problem, just follow these steps:
+
+```bash
+git clone git@github.com:wvmitchell/game_of_life.git
+cd game_of_life
+
