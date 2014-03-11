@@ -42,3 +42,8 @@ To exit the simulation in your terminal, just hit `ctrl-c`
 
 Have an edge case that needs a test? Know a faster algorithm for simulating
 a life cycle? Please, fork, hack, and submit a pull request.
+
+
+## Notes
+
+You'll need to be running ruby 1.9.1 or later
