@@ -32,4 +32,5 @@ Want to see it in action? No problem, just follow these steps:
 ```bash
 git clone git@github.com:wvmitchell/game_of_life.git
 cd game_of_life
-
+ruby simulate.rb
+```
