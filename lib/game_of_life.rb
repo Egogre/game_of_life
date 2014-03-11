@@ -1,3 +1,4 @@
+require 'pry'
 class GameOfLife
 
   attr_reader :cells
@@ -60,14 +61,22 @@ class GameOfLife
 
   def run
     system 'clear' or system 'cls'
-    while true do
-      test = board
+    while(true) do
       puts board
       cycle
-      sleep 0.3
       system 'clear' or system 'cls'
-      break if board == test
     end
+  end
+
+  def stable?
+    future_game = Marshal.load(Marshal.dump(self))
+    2.times do
+      future_game.cycle
+      if self.cells == future_game.cells
+        return true
+      end
+    end
+    false
   end
 
   private

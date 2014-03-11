@@ -70,4 +70,20 @@ class GameOfLifeTest < MiniTest::Test
     assert_equal "X X  \nX X  \n     ", game.board
   end
 
+  def test_game_knows_when_board_is_stable
+    assert game.stable?
+    game.make_live(row: 1, column: 1)
+    refute game.stable?
+  end
+
+  def test_game_knows_when_board_is_stable_again
+    game.populate(cells: [{row:0, column:0}, {row:0, column:1}, {row:1, column:0}, {row:1, column:1}])
+    assert game.stable?
+  end
+
+  def test_game_knows_when_board_is_in_loop
+    game.populate(cells: [{row:0, column:1}, {row:1, column:1}, {row:2, column:1}])
+    assert game.stable?
+  end
+
 end
